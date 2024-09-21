@@ -2,6 +2,7 @@ const express = require("express");
 const twilio = require("twilio");
 const cors = require("cors");
 const http = require("http");
+const path = require("path");
 require("dotenv").config();
 import { PrismaClient } from "@prisma/client";
 
@@ -11,6 +12,7 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.resolve(__dirname, "../build")));
 
 // Twilio configuration
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
@@ -58,6 +60,11 @@ app.get("/get-history", async (req: any, res: any) => {
     res.status(500).json({ success: false, error: error });
   }
 });
+
+//to make react router work in case of other routes doesnt match
+app.get("*", (req: any, res: any) =>
+  res.sendFile(path.resolve("build", "index.html"))
+);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

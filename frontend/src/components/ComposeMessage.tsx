@@ -17,7 +17,7 @@ const ComposeMessage = () => {
 
   const handleSend = async () => {
     try {
-      const response = await fetch("http://localhost:3000/send-sms", {
+      const response = await fetch("/send-sms", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

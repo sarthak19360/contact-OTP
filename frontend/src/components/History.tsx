@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const History = () => {
   const [messageHistory, setMessageHistory] = useState(null);
   const fetchMessageHistory = async () => {
-    const res = await fetch("http://localhost:3000/get-history");
+    const res = await fetch("/get-history");
     const data = await res.json();
     setMessageHistory(data);
   };
