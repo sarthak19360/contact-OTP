@@ -1,9 +1,8 @@
-const express = require("express");
-const twilio = require("twilio");
-const cors = require("cors");
-const http = require("http");
-const path = require("path");
-require("dotenv").config();
+import express from "express";
+import twilio from "twilio";
+import cors from "cors";
+import path from "path";
+import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
 
 const app = express();
