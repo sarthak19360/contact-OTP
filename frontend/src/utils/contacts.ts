@@ -18,4 +18,10 @@ export const contacts: contactType[] = [
     firstName: "Sarthak",
     lastName: "Singh",
   },
+  {
+    id: 3,
+    phoneNum: "+918929470343",
+    firstName: "Satyam",
+    lastName: "Jha",
+  },
 ];
